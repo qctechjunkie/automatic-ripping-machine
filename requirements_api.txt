@@ -1,0 +1,60 @@
+# Automatic Ripping Machine - FastAPI Backend Requirements
+# Install with: pip install -r requirements_api.txt
+
+# ============================================================================
+# FastAPI Core
+# ============================================================================
+fastapi==0.115.0
+uvicorn[standard]==0.32.0          # ASGI server with WebSocket support
+python-multipart==0.0.18            # For form data and file uploads
+
+# ============================================================================
+# Database (Async SQLAlchemy)
+# ============================================================================
+sqlalchemy[asyncio]==2.0.36
+aiosqlite==0.20.0                   # Async SQLite driver
+alembic==1.14.0                     # Database migrations
+
+# ============================================================================
+# Authentication & Security
+# ============================================================================
+python-jose[cryptography]==3.3.0    # JWT token generation
+passlib[bcrypt]==1.7.4              # Password hashing
+python-dotenv==1.0.1                # Environment variable loading
+pydantic-settings==2.6.1            # Settings management
+
+# ============================================================================
+# Real-time Features
+# ============================================================================
+websockets==14.1                    # WebSocket support
+sse-starlette==2.2.1                # Server-Sent Events (alternative to WebSockets)
+
+# ============================================================================
+# Utilities
+# ============================================================================
+pydantic==2.10.3                    # Data validation
+pydantic-core==2.27.2
+psutil==6.1.0                       # System information (keep from existing)
+
+# ============================================================================
+# CORS
+# ============================================================================
+# FastAPI has built-in CORS middleware, no extra package needed
+
+# ============================================================================
+# Existing ARM Dependencies (Keep these)
+# ============================================================================
+# Note: These are from the original ARM application and may be needed
+# for interacting with existing ARM modules
+argparse==1.4.0
+colorama==0.4.6
+
+# ============================================================================
+# Development & Testing (Optional)
+# ============================================================================
+# Uncomment for development:
+# pytest==8.3.4
+# pytest-asyncio==0.24.0
+# httpx==0.28.1                     # For testing FastAPI
+# black==24.10.0                    # Code formatting
+# ruff==0.8.4                       # Fast Python linter
