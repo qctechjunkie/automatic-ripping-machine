@@ -1,11 +1,20 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)",
-      "Bash(python:*)",
-      "Bash(pip install:*)",
-      "Bash(timeout 5 python:*)",
-      "Bash(set ARM_CONFIG_FILE=configarm.yaml)"
+      "WebFetch(domain:git.mgsfoxhound.net)",
+      "Bash(claude mcp:*)",
+      "Bash(echo \"exit code: $?\")",
+      "Bash(go version:*)",
+      "Bash(where go:*)",
+      "Bash(cat ~/.claude/mcp*.json)",
+      "Bash(env)",
+      "mcp__gitea__get_me",
+      "mcp__gitea__get_dir_contents",
+      "mcp__gitea__get_repository_tree",
+      "mcp__gitea__get_file_contents",
+      "mcp__gitea__search_repos",
+      "mcp__gitea__create_repo",
+      "mcp__gitea__create_or_update_file"
     ]
   }
 }

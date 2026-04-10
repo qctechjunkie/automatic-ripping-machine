@@ -1,0 +1,27 @@
+services:
+  arm:
+    image: automaticrippingmachine/automatic-ripping-machine:latest
+    container_name: arm
+    restart: unless-stopped
+    privileged: false
+    devices:
+      # Optical drives (BD drives)
+      - /dev/sr0:/dev/sr0
+      - /dev/sr1:/dev/sr1
+      - /dev/sr2:/dev/sr2
+      # SCSI generic devices (required for MakeMKV)
+      - /dev/sg1:/dev/sg1
+      - /dev/sg2:/dev/sg2
+      - /dev/sg3:/dev/sg3
+    volumes:
+      - ${DOCKER_DATA_PATH}/config:/etc/arm/config
+      - ${DOCKER_DATA_PATH}/media:/home/arm/media
+      - ${DOCKER_DATA_PATH}/logs:/home/arm/logs
+      - ${DOCKER_DATA_PATH}/db:/home/arm/db
+      # NAS mounts — do NOT use symlinks here
+      - ${ARM_NAS_COMPLETED_PATH}:/home/arm/media/completed
+      - ${ARM_NAS_MUSIC_PATH}:/home/arm/music
+    ports:
+      - "${ARM_PORT:-8080}:8080"
+    environment:
+      - TZ=${TZ:-America/Chicago}
